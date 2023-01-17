@@ -1,0 +1,34 @@
+First log in to the console as the AWS account root user
+
+Creating an IAM user
+In this, you will create an IAM user with administrator access.
+
+1) In the Services search box, enter IAM, and open the IAM console.
+
+2) In the navigation pane, choose Users.
+
+3) Choose Add users and in the Set user details page, configure the following settings.
+	-User name: Admin
+	-Select AWS credential type:
+	-Access key - Programmatic access
+	-Password - AWS Management Console access
+	-Console password: Custom password and enter a password of your choosing
+	-Require password reset: Clear this option
+4) Choose Next: Permissions.
+
+5) In the Set permission page, choose Attach existing policies directly.
+
+6) In the Filter policies box, search for administrator.
+
+7) Under Policy name, select AdministratorAccess.
+
+8) Choose Next: Tags, and then choose Next: Review.
+
+9) Choose Create user.
+
+10) You can sign in with the new IAM admin user by choosing the URL at the bottom of the Success window.
+
+Note: The sign-in URL should look like the following: https://123456789012.signin.aws.amazon.com/console.
+
+11) Log in to the console with the Admin user and password that you created.
+
