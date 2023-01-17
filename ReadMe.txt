@@ -16,3 +16,4 @@ for this application deployment we will use AWS services that are-
 we will be deploying all this services using the GUI not the CLI so follow the steps
 in the UpGiven Files.
 	
+Skip step 1&2 If you wish to use AWS using root Account
