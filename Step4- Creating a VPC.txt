@@ -1,0 +1,118 @@
+In this Step, you will create a new VPC.
+
+1) If needed, log in to the AWS Management Console as your Admin user.
+
+2) In the Services search box, enter VPC and open the VPC console by choosing VPC from the list.
+
+3) In the navigation pane, under Virtual private cloud, choose Your VPCs.
+
+4) Choose Create VPC.
+
+5)Configure these settings:
+	-Name tag: app-vpc
+	-IPv4 CIDR block: 10.1.0.0/16
+6) Choose Create VPC.
+
+7) In the navigation pane, under Virtual private cloud, choose Internet gateways
+
+8) Choose Create internet gateway.
+
+9) For Name tag, paste app-igw and choose Create internet gateway.
+
+10) In the details page for the internet gateway, choose Actions and then choose Attach to VPC.
+
+11) For Available VPCs, choose app-vpc and then choose Attach internet gateway.
+
+
+For the next Step, you will create the four subnets for your VPC. You will configure the two public subnets first, and then configure the two private subnets.
+
+1) From the navigation pane, choose Subnets.
+
+2) Choose Create subnet.
+
+3) For the first public subnet, configure these settings:
+	-VPC ID: app-vpc
+	-Subnet name:Public Subnet 1
+	-Availability Zone: Choose the first Availability Zone
+	-Example: If you are in US West (Oregon), you would choose us-west-2a
+	-IPv4 CIDR block: 10.1.1.0/24
+4) Choose Add new subnet.
+
+5) For the second public subnet, configure these settings:
+	-Subnet name: Public Subnet 2
+	-Availability Zone: Choose the second Availability Zone
+	Example: If you are in US West (Oregon), you would choose us-west-2b
+	-IPv4 CIDR block: 10.1.2.0/24
+
+6) Choose Add new subnet and for the first private subnet, configure these settings:
+	-Subnet name: Private Subnet 1
+	-Availability Zone: Choose the first Availability Zone
+	Example: If you are in US West (Oregon), you would choose us-west-2a
+	-IPv4 CIDR block: 10.1.3.0/24.
+
+7) Choose Add new subnet and for the second private subnet, configure the following:
+	-Subnet name: Private Subnet 2
+	-Availability Zone: Choose the second Availability Zone
+	Example: If you are in US West (Oregon), you would choose us-west-2b
+	-IPv4 CIDR block: 10.1.4.0/24
+8) Finally, choose Create subnet.
+
+9) After the subnets are created, select the check box for Public Subnet 1.
+
+10) Choose Actions and then choose Edit subnet settings.
+
+11) For Auto-assign IP settings, select Enable auto-assign public IPv4 address and then choose Save.
+
+12) Clear the check box for Public Subnet 1 and select the check box for Public Subnet 2.
+
+13) Again, choose Actions and then Edit subnet settings.
+
+14) For Auto-assign IP settings, select Enable auto-assign public IPv4 address and save the settings.
+
+
+
+For the next Step, you will create the route tables for your VPC.
+
+1) First, you will create the public route table.
+
+2) In the navigation pane, choose Route Tables.
+
+3) Choose Create route table.
+
+4) For the route table, configure these settings:
+	-Name: app-routetable-public
+	-VPC: app-vpc
+
+5) Choose Create route table.
+	If needed, open the route table details pane by choosing app-routetable-public from the list.
+
+6) Choose the Routes tab and choose Edit routes.
+
+7) Choose Add route and configure these settings:
+	-Destination: 0.0.0.0/0
+	-Target: Internet Gateway, then choose app-igw (which you set up in the VPC task)
+
+8) Choose Save changes.
+
+9) Choose the Subnet associations tab.
+
+10) Scroll to Subnets without explicit associations and choose Edit subnet associations.
+
+11) Select the two public subnets that you created (Public Subnet 1 and Public Subnet 2) and choose Save associations.
+
+12) Next, you will create the private route table.
+
+13) In the navigation pane, choose Route Tables.
+
+14) Choose Create route table and configure these settings:
+	-Name: app-routetable-private
+	-VPC: app-vpc
+
+15) Choose Create route table.
+	If needed, open the details pane for app-routetable-private by choosing it from the list.
+
+16) Choose the Subnet associations tab.
+
+17) Scroll to Subnets without explicit associations and choose Edit subnet associations.
+
+18) Select the two private subnets (Private Subnet 1 and Private Subnet 2) and choose Save associations.
